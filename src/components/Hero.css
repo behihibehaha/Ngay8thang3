@@ -188,7 +188,7 @@
     font-size: clamp(1rem, 3vw, 1.4rem);
     color: var(--text-medium);
     font-style: italic;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     line-height: 1.8;
 }

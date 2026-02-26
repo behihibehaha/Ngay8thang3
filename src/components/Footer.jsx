@@ -47,7 +47,7 @@ export default function Footer() {
                 <div className="footer-divider" />
 
                 <p className="footer-credit">
-                    Made with 💕 • Happy International Women's Day 2025
+                    Made with 💕 • Happy International Women's Day 2026
                 </p>
             </motion.div>
         </footer>

@@ -119,7 +119,7 @@ export default function Hero() {
 
                 {/* Subtitle */}
                 <motion.p className="hero-subtitle" variants={subtitleVariants} initial="hidden" animate="visible">
-                    Gửi tặng những đoá hoa yêu thương đến tất cả phụ nữ 💐
+                    Gửi tặng những đoá hoa yêu thương đến các tình yêu xinh đẹp 💐
                 </motion.p>
 
                 {/* Scroll indicator */}
@@ -129,10 +129,8 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3, duration: 1 }}
                 >
-                    <div className="scroll-mouse">
-                        <div className="scroll-wheel" />
-                    </div>
-                    <span>Cuộn xuống</span>
+                    <img src="./src/assets/AAAA.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                    <span style={{ color: '#9b2424ff' }}>↓↓↓ Cuộn xuống ↓↓↓</span>
                 </motion.div>
             </motion.div>
         </section>
