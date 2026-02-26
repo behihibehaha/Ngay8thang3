@@ -1,0 +1,98 @@
+.footer {
+    position: relative;
+    background: linear-gradient(180deg,
+            var(--cream) 0%,
+            var(--pink-100) 30%,
+            var(--pink-200) 100%);
+    padding: 60px 24px 40px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-flowers {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.footer-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.footer-day {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--pink-500);
+}
+
+.footer-heart {
+    font-size: 1.8rem;
+    animation: heartPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.footer-month {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--lavender-400);
+}
+
+.footer-message {
+    font-family: var(--font-serif);
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--text-medium);
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.footer-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink-300), var(--lavender-300));
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.footer-credit {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 48px 16px 32px;
+    }
+
+    .footer-day {
+        font-size: 2.5rem;
+    }
+
+    .footer-month {
+        font-size: 1.5rem;
+    }
+}

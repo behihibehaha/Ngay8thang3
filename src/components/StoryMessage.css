@@ -1,0 +1,94 @@
+.story {
+    position: relative;
+    background: linear-gradient(180deg,
+            var(--cream) 0%,
+            var(--pink-100) 50%,
+            var(--cream) 100%);
+}
+
+.story-card {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 48px 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.story-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.story-text {
+    font-family: var(--font-serif);
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: var(--text-medium);
+    line-height: 2;
+    margin-bottom: 16px;
+}
+
+.story-text:first-of-type {
+    font-style: italic;
+    color: var(--pink-400);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+}
+
+.story-text-main {
+    color: var(--text-dark);
+}
+
+.story-sign {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: var(--pink-500);
+    margin-top: 28px;
+}
+
+/* Decorative corners */
+.story-corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-color: var(--pink-300);
+    opacity: 0.4;
+}
+
+.story-corner-tl {
+    top: 16px;
+    left: 16px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-radius: 8px 0 0 0;
+}
+
+.story-corner-br {
+    bottom: 16px;
+    right: 16px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-radius: 0 0 8px 0;
+}
+
+.story-bottom-deco {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .story-card {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-card {
+        padding: 28px 20px;
+    }
+
+    .story-text {
+        font-size: 0.9rem;
+    }
+}
