@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import greetings from './greetings';
 import './Gallery.css';
 
 const illustrations = [
     {
         id: 1,
         title: 'Sắc hoa dành tặng',
-        description: 'Mỗi bông hoa là một lời yêu thương, mỗi sắc màu là một niềm trân trọng dành tặng những người phụ nữ tuyệt vời. Hãy để những đóa hoa này nói lên tất cả tình cảm mà lời nói không thể diễn tả.',
         emoji: '🌸🌷🌹',
         color: '#fff0f5',
         accent: '#f0a6ca',
@@ -37,7 +37,6 @@ const illustrations = [
     {
         id: 2,
         title: 'Sức mạnh dịu dàng',
-        description: 'Phụ nữ không chỉ mạnh mẽ — họ mạnh mẽ một cách dịu dàng. Sức mạnh ấy không cần phô trương, mà tỏa sáng qua từng hành động yêu thương, sự kiên nhẫn và lòng bao dung vô bờ bến.',
         emoji: '💪✨👩‍👩‍👧',
         color: '#f3e8ff',
         accent: '#c084fc',
@@ -61,7 +60,6 @@ const illustrations = [
     {
         id: 3,
         title: 'Khoảnh khắc bình yên',
-        description: 'Giữa bộn bề cuộc sống, hãy dành cho mình những phút giây thật bình yên. Đọc một cuốn sách, nhâm nhi tách trà, hay đơn giản là ngắm nhìn bầu trời. Bạn xứng đáng được nghỉ ngơi.',
         emoji: '📖🌿☕',
         color: '#fff1e6',
         accent: '#f0a6ca',
@@ -91,7 +89,6 @@ const illustrations = [
     {
         id: 4,
         title: 'Niềm vui rạng ngời',
-        description: 'Nụ cười của phụ nữ có sức mạnh chiếu sáng cả thế giới. Hãy cứ tỏa sáng, cứ vui vẻ, cứ nhảy múa — vì cuộc đời này đáng để bạn tận hưởng trọn vẹn từng khoảnh khắc!',
         emoji: '💃🎉🌟',
         color: '#ffd6e7',
         accent: '#d45d8a',
@@ -165,10 +162,24 @@ const sparkleVariants = {
     }),
 };
 
+function getRandomGreeting() {
+    return greetings[Math.floor(Math.random() * greetings.length)];
+}
+
 export default function Gallery() {
     const [selectedCard, setSelectedCard] = useState(null);
+    const [currentGreeting, setCurrentGreeting] = useState('');
+
+    const handleCardClick = useCallback((item) => {
+        setSelectedCard(item);
+        setCurrentGreeting(getRandomGreeting());
+    }, []);
 
     const handleClose = () => setSelectedCard(null);
+
+    const handleNewGreeting = () => {
+        setCurrentGreeting(getRandomGreeting());
+    };
 
     return (
         <section className="gallery" id="gallery">
@@ -189,7 +200,7 @@ export default function Gallery() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: 0.2 }}
                 >
-                    Mỗi người phụ nữ đều mang trong mình một vẻ đẹp riêng biệt
+                    Nhấn vào mỗi bức tranh để nhận lời chúc dành riêng cho bạn ✨
                 </motion.p>
 
                 <div className="gallery-grid">
@@ -207,7 +218,7 @@ export default function Gallery() {
                                 rotate: i % 2 === 0 ? 2 : -2,
                                 transition: { duration: 0.3, ease: [0.34, 1.56, 0.64, 1] },
                             }}
-                            onClick={() => setSelectedCard(item)}
+                            onClick={() => handleCardClick(item)}
                         >
                             <div className="gallery-card-illustration" style={{ backgroundColor: item.color }}>
                                 {item.svg}
@@ -216,7 +227,7 @@ export default function Gallery() {
                                 <h3 className="gallery-card-title" style={{ color: item.accent }}>
                                     {item.title}
                                 </h3>
-                                <span className="gallery-card-hint">Nhấn để xem ✨</span>
+                                <span className="gallery-card-hint">Nhấn để nhận lời chúc ✨</span>
                             </div>
                             <div className="gallery-card-glow" style={{ background: item.accent }} />
                         </motion.div>
@@ -285,17 +296,36 @@ export default function Gallery() {
                                 <h3 className="gallery-modal-title" style={{ color: selectedCard.accent }}>
                                     {selectedCard.title}
                                 </h3>
-                                <p className="gallery-modal-description">{selectedCard.description}</p>
+
+                                {/* Random greeting */}
+                                <AnimatePresence mode="wait">
+                                    <motion.p
+                                        key={currentGreeting}
+                                        className="gallery-modal-greeting"
+                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        {currentGreeting}
+                                    </motion.p>
+                                </AnimatePresence>
+
+                                {/* Button to get another greeting */}
+                                <motion.button
+                                    className="gallery-modal-btn"
+                                    onClick={handleNewGreeting}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    style={{ '--btn-color': selectedCard.accent }}
+                                >
+                                    🎲 Lời chúc khác
+                                </motion.button>
+
                                 <motion.div
                                     className="gallery-modal-heart"
-                                    animate={{
-                                        scale: [1, 1.2, 1],
-                                    }}
-                                    transition={{
-                                        repeat: Infinity,
-                                        duration: 1.5,
-                                        ease: 'easeInOut',
-                                    }}
+                                    animate={{ scale: [1, 1.2, 1] }}
+                                    transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
                                 >
                                     💖
                                 </motion.div>
