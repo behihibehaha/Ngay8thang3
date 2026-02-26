@@ -37,7 +37,7 @@ export default function Footer() {
                 <div className="footer-date">
                     <span className="footer-day">8</span>
                     <span className="footer-heart">❤️</span>
-                    <span className="footer-month">Tháng 3</span>
+                    <span className="footer-month">3</span>
                 </div>
 
                 <p className="footer-message">

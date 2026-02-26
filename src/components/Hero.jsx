@@ -48,7 +48,7 @@ const flowerSvgVariants = {
     },
 };
 
-const title = 'Happy Women\'s Day';
+const title = 'Happy Women\'s Day - JDC';
 
 export default function Hero() {
     const ref = useRef(null);

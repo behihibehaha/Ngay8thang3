@@ -50,20 +50,18 @@ export default function StoryMessage() {
                 <motion.div className="story-card glass-card" variants={itemVariants}>
                     <div className="story-icon">💌</div>
                     <p className="story-text">
-                        Gửi đến những người phụ nữ tuyệt vời nhất,
+                        JDCの素晴らしい女性の皆さまへ
                     </p>
                     <p className="story-text story-text-main">
-                        Cảm ơn vì tất cả tình yêu thương, sự hy sinh và nỗ lực không ngừng nghỉ
-                        mà các bạn dành cho cuộc sống này. Các bạn là nguồn cảm hứng, là ánh sáng,
-                        là sức mạnh dịu dàng nhưng vô cùng phi thường.
+                        いつも温かい心とたゆまぬ努力で、チームを支えてくださり本当にありがとうございます。
+                        Comtor、BA、BrSEとして架け橋となり、想いと言葉をつないでくださる皆さまの存在は、私たちにとって大きな力であり、誇りです。
                     </p>
                     <p className="story-text story-text-main">
-                        Mỗi nụ cười của các bạn làm thế giới thêm tươi đẹp, mỗi bước chân các bạn
-                        đi tạo nên những con đường mới. Hãy luôn tự hào về chính mình, vì các bạn
-                        xứng đáng nhận được tất cả những điều tốt đẹp nhất.
+                        その笑顔と優しさ、そして強さが、これからもたくさんの輝きを生み出しますように。
+                        皆さまが自分らしく、幸せに満ちた毎日を過ごせますよう心より願っています。
                     </p>
                     <p className="story-sign">
-                        — Với tất cả yêu thương 🌷
+                        いつも感謝を込めて。 🌸
                     </p>
 
                     {/* Decorative corners */}
