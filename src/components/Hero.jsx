@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import './Hero.css';
+import scrollIcon from '../assets/AAAA.png';
 
 const letterVariants = {
     hidden: { opacity: 0, y: 60, rotateX: -90 },
@@ -129,7 +130,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 3, duration: 1 }}
                 >
-                    <img src="./src/assets/AAAA.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                    <img src={scrollIcon} alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
                     <span style={{ color: '#9b2424ff' }}>↓↓↓ Cuộn xuống ↓↓↓</span>
                 </motion.div>
             </motion.div>
