@@ -118,7 +118,7 @@ export default function Gallery() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
                 >
-                    Vườn Đào JDC
+                    Vườn Đào
                 </motion.h2>
                 <motion.p
                     className="section-subtitle"

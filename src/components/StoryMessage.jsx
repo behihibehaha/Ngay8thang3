@@ -50,7 +50,7 @@ export default function StoryMessage() {
                 <motion.div className="story-card glass-card" variants={itemVariants}>
                     <div className="story-icon">💌</div>
                     <p className="story-text">
-                        JDCの素晴らしい女性の皆さまへ
+                        素晴らしい女性の皆さまへ
                     </p>
                     <p className="story-text story-text-main">
                         いつも温かい心とたゆまぬ努力で、チームを支えてくださり本当にありがとうございます。
